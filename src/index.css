@@ -1,0 +1,35 @@
+/* semantic tags / non-semantic */
+
+/* main */
+/* footer */
+/* nav */
+/* header */
+/* section */
+/* aside */
+/* .. */
+
+/* no-semantic */
+/* div */
+/* span */
+
+/* block , inline, inline-block elements */
+/*? block */
+/* 1. takes full with of parent */
+/* 2. always starts from new line */
+/* 3. can set height width margin padding properties */
+/* div,p,h1-h6, section */
+
+/*? inline tag */
+/* 1. takes width as it contents */
+/* 2. always starts in same line */
+/* 3. can not set h,w,m & padding */
+/* span input a , i , b ,  */
+
+/*? inline-block */
+/* mix of block and inline */
+/* 1.always starts in same line */
+/* 2.can set height width margin padding properties*/
+/* input ,button */
+/* we can make any block elements inline-block by setting display property */
+/* display:inline-block */
+/*  */
