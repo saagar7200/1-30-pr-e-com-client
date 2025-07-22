@@ -1,4 +1,4 @@
-import LoginForm from "../../components/forms/auth/login-form"
+import { Link } from "react-router"
 import RegisterForm from "../../components/forms/auth/register-form"
 
 const Register  = () =>{
@@ -14,7 +14,7 @@ const Register  = () =>{
                 </div>
 
                 <div className='mt-3 text-center '>
-                    <p>Do not have an account? <span className='text-indigo-700 font-bold '>Sign Up</span></p>
+                    <p>Already have an account? <Link to={'/login'}><span className='text-indigo-700 font-bold '>Sign In</span></Link></p>
                 </div>
 
             </div>                 

@@ -1,3 +1,4 @@
+import { Link } from 'react-router'
 import LoginForm from '../../components/forms/auth/login-form'
 
 const Login  = () =>{
@@ -13,7 +14,7 @@ const Login  = () =>{
                 </div>
 
                 <div className='mt-3 text-center '>
-                    <p>Do not have an account? <span className='text-indigo-700 font-bold '>Sign Up</span></p>
+                    <p>Do not have an account? <Link to={'/sign-up'}><span className='text-indigo-700 font-bold '>Sign Up</span></Link></p>
                 </div>
 
             </div>                 
