@@ -31,6 +31,9 @@ const LoginForm = () => {
                         name={'email'}
                         placeholder={'example@gmail.com'}
                         type={'email'}
+                        rules={{
+                            required:'Email is required'
+                        }}
                         required
 
                     />
@@ -42,6 +45,10 @@ const LoginForm = () => {
                         name={'password'}
                         placeholder={'xxxxxxxxxx'}
                         type={'password'}
+                        rules={{
+                            required:'Password is required',
+                            minLength:6
+                        }}
                         required
 
                     />          

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import type { FC } from "react"
 import { LuAsterisk } from "react-icons/lu";
 import {useFormContext} from 'react-hook-form'
@@ -7,15 +8,15 @@ interface IProps {
     name: string,
     id: string,
     placeholder: string,
-    required?:boolean
+    required?:boolean,
+    rules?:any
 }
 
 
-const Input: FC<IProps> = ({ id, label, name, type = 'text', placeholder ,required=false}) => {
+const Input: FC<IProps> = ({ id, label, name, type = 'text', placeholder ,required=false,rules}) => {
    
     const {register,watch,formState:{errors}} = useFormContext();
 
-    console.log(errors)
     return (
         <div className="flex flex-col gap-1 w-full ">
             {/* label */}
@@ -28,9 +29,12 @@ const Input: FC<IProps> = ({ id, label, name, type = 'text', placeholder ,requir
             </div>
             {/* input */}
             <input
-                {...register(name,{required:'this field is reuired'})}
+                {...register(name,rules)}
                 value={watch(name)}
-                className={`border ${errors[name] ? 'border-red-500 focus:outline-red-500' :'border-blue-500 focus:outline-blue-500'} p-3 rounded-md placeholder:text-lg text-lg `}
+                className={
+                    `border ${errors[name] ? 'border-red-500 focus:outline-red-500' :'border-blue-500 focus:outline-blue-500'}
+                     p-3 rounded-md placeholder:text-lg text-lg `
+                    }
                 placeholder={placeholder}
                 type={type}
                 id={id}
