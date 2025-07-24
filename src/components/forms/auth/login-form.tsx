@@ -1,10 +1,28 @@
+import type { ILogin } from "../../../types/auth.types"
 import Button from "../../common/button"
 import Input from "../../common/inputs/input"
+import {useForm,FormProvider} from 'react-hook-form'
 
 const LoginForm = () => {
+
+    const methods = useForm({
+        defaultValues:{
+            email:'',
+            password:''
+        }
+    })
+
+
+    const onSubmit = (data:ILogin) =>{
+        console.log('form submitted',data)
+    }
+
+
+
   return (
     <div>
-        <form className="flex flex-col gap-10 ">
+        <FormProvider {...methods}>
+        <form onSubmit={methods.handleSubmit(onSubmit)} className="flex flex-col gap-10 ">
             <div className="flex flex-col gap-4">
                     {/* email */}
                     <Input
@@ -30,12 +48,14 @@ const LoginForm = () => {
             </div>
 
             <Button
+        
                 label={"Login"}
                 type="submit"
             />
 
         </form>
 
+        </FormProvider>
       
     </div>
   )
