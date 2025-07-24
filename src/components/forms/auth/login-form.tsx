@@ -1,3 +1,4 @@
+import Button from "../../common/button"
 import Input from "../../common/inputs/input"
 
 const LoginForm = () => {
@@ -12,6 +13,8 @@ const LoginForm = () => {
                         name={'email'}
                         placeholder={'example@gmail.com'}
                         type={'email'}
+                        required
+
                     />
 
                     {/* password */}
@@ -21,12 +24,15 @@ const LoginForm = () => {
                         name={'password'}
                         placeholder={'xxxxxxxxxx'}
                         type={'password'}
+                        required
+
                     />          
             </div>
-            <button 
-                className="w-full p-3 rounded-md text-lg font-bold text-white cursor-pointer bg-indigo-600 hover:bg-indigo-800  transition-all duration-300"
+
+            <Button
+                label={"Login"}
                 type="submit"
-            > Login </button>
+            />
 
         </form>
 
