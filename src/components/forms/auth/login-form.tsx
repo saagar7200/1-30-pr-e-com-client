@@ -1,7 +1,10 @@
+import { yupResolver } from "@hookform/resolvers/yup"
 import type { ILogin } from "../../../types/auth.types"
 import Button from "../../common/button"
 import Input from "../../common/inputs/input"
 import {useForm,FormProvider} from 'react-hook-form'
+import { loginSchema } from "../../../schema/auth.schema"
+import { login } from "../../../api/auth.api"
 
 const LoginForm = () => {
 
@@ -9,12 +12,17 @@ const LoginForm = () => {
         defaultValues:{
             email:'',
             password:''
-        }
+        },
+        resolver:yupResolver(loginSchema),
+        mode:'all'
     })
 
 
-    const onSubmit = (data:ILogin) =>{
+    const onSubmit = async (data:ILogin) =>{
         console.log('form submitted',data)
+        const response = await login(data);
+        console.log(response)
+        
     }
 
 
@@ -30,10 +38,7 @@ const LoginForm = () => {
                         label={"Email"}
                         name={'email'}
                         placeholder={'example@gmail.com'}
-                        type={'email'}
-                        rules={{
-                            required:'Email is required'
-                        }}
+                        type={'text'}
                         required
 
                     />
@@ -45,10 +50,6 @@ const LoginForm = () => {
                         name={'password'}
                         placeholder={'xxxxxxxxxx'}
                         type={'password'}
-                        rules={{
-                            required:'Password is required',
-                            minLength:6
-                        }}
                         required
 
                     />          
