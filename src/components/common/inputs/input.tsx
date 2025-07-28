@@ -40,7 +40,7 @@ const Input: FC<IProps> = ({ id, label, name, type = 'text', placeholder, requir
                      p-3 rounded-md placeholder:text-lg text-lg `
                     }
                     placeholder={placeholder}
-                    type={show ? 'text' : type}
+                    type={show && type === 'password' ? 'text' : type}
                     id={id}
                 />
                     {type === 'password' &&

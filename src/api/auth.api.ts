@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import type { ILogin } from "../types/auth.types";
+import type { ILogin, IRegister } from "../types/auth.types";
 import api from "./index";
 
 export const login = async (data: ILogin) => {
@@ -9,6 +9,11 @@ export const login = async (data: ILogin) => {
 
     return response.data;
   } catch (error: any) {
-    throw error.data;
+    throw error.response.data;
   }
+};
+
+export const register = async (data: Omit<IRegister, "confirm_password">) => {
+  console.log(data);
+  // register logic
 };

@@ -4,6 +4,7 @@ import Button from '../../common/button'
 import Input from '../../common/inputs/input'
 import {useForm,FormProvider} from 'react-hook-form'
 import { registerSchema } from '../../../schema/auth.schema'
+import { register } from '../../../api/auth.api'
  
 const RegisterForm = () => {
 
@@ -22,8 +23,9 @@ const RegisterForm = () => {
     })
 
     // submit handler 
-    const onSubmit = (data:IRegister) =>{
+    const onSubmit = async(data:IRegister) =>{
         console.log(data)
+        register(data)
     }
 
   return (
