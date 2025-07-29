@@ -7,6 +7,7 @@ import { loginSchema } from "../../../schema/auth.schema"
 import { login } from "../../../api/auth.api"
 import { useMutation } from "@tanstack/react-query"
 import { useNavigate } from "react-router"
+import toast from "react-hot-toast"
 
 const LoginForm = () => {
 
@@ -24,12 +25,17 @@ const LoginForm = () => {
     const { mutate, isPending } = useMutation({
         mutationFn: login,
         onSuccess: (data) => {
-            console.log('login success response', data)
+            // store user object and token on local storage
+            localStorage.setItem('user',JSON.stringify(data.data.user))
+            // toast message -> 
+            toast.success(data.message ?? 'Login sucessfull')
+            // redirected to home page
             navigate('/')
 
         },
         onError: (error) => {
-            console.log('login error response', error)
+            // toast message -> 
+            toast.error(error.message ?? 'Login failed')
 
         }
     })
