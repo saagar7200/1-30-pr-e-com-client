@@ -1,4 +1,5 @@
 import NavBar from "../components/header"
+import FeaturedProducts from "../components/landing/feraured-products"
 import Hero from "../components/landing/hero"
 
 
@@ -8,7 +9,7 @@ const HomePage = () =>{
         <main>
             <NavBar/>
             <Hero/>
-            <h1>Home Page</h1>
+            <FeaturedProducts/>
         </main>
     )
 
