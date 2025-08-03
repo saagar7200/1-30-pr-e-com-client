@@ -15,24 +15,24 @@ const ProductCard = () => {
             </div>
 
             <div className='mt-5'>
-                <h1 className='text-[#A31621] font-bold text-lg line-clamp-1'>
+                <h1 className='text-[#A31621] font-bold text-[16px] line-clamp-1'>
                     ThinkBook 16 Gen 7(16,AMD)
                 </h1>
-                <p className='text-[14px] mt-2 line-clamp-2'>16" WUXGA | Ryzen 7000 | 16GB RAM
+                <p className='text-[12px] mt-2 line-clamp-2'>16" WUXGA | Ryzen 7000 | 16GB RAM
                     | 512GB SSD | Radeon Graphics
                     Intel Xeon E-2336 | 32GB RAM | 1TB NVMe SSD | Remote Management</p>
             </div>
             <div className='flex mt-2 justify-between text-lg'>
                 
-                <p>Rs.124908</p>
-                <p>stock: <span className='text-green-500 '>5</span></p>
+                <p className='text-[14px]'>Rs.124908</p>
+                <p>stock: <span className='text-green-500  text-[14px]'>5</span></p>
 
             </div>
             <div className=' flex justify-between mt-5 gap-3'>
-                <button className='bg-[#A31621] w-full p-2 rounded-md text-white text-[16px] font-[500] cursor-pointer'>
+                <button className=' bg-[#A31621] w-full p-2 rounded-md text-white text-[16px] font-[500] cursor-pointer'>
                     View Detail
                 </button>
-                <button className='border border-[#A31621]  w-full p-2 px-1 rounded-md text-[#A31621] text-[16px] font-[500] cursor-pointer'>
+                <button className=' border border-[#A31621]  w-full p-2 px-1 rounded-md text-[#A31621] text-[16px] font-[500] cursor-pointer'>
                     Add to wishlist
                 </button>
             </div>
