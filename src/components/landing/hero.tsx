@@ -6,6 +6,10 @@ import heroImage from '../../assets/hero-1.jpg'
 const Hero = () => {
   return (
     <div id={'hero-section'} className="w-full  h-[85vh] relative">
+
+    {/* overlay */}
+    <div className='bg-black/40 absolute  inset-0'></div>
+
       <img
         src={heroImage}
         className='h-full w-full'
