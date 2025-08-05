@@ -3,7 +3,7 @@ import type { ICategoryData } from '../../../types/category.types'
 import ComponentTitle from '../conponent-title-with-button'
 import CategoryCard from './category-card'
 import { getAllCategory } from '../../../api/category.api'
-import CategoryCardLoader from './category-loader'
+import CategoryCardLoader from '../../loaders/category-loader'
 
 const CategoryList = () => {
 

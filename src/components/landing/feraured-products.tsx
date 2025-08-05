@@ -1,9 +1,19 @@
+import { useQuery } from '@tanstack/react-query'
 import ProductCard from '../poducts/card'
 import ComponentTitle from './conponent-title-with-button'
+import { getFeaturedProducts } from '../../api/product.api'
 
 
 
 const FeaturedProducts = () => {
+
+  const {data,isLoading} = useQuery({
+    queryFn:getFeaturedProducts,
+    queryKey:['get_featured_products']
+  })
+
+  console.log(data,isLoading)
+
   return (
     <div className='mt-10 px-36'>
       <ComponentTitle
