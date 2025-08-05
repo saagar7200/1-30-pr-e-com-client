@@ -14,6 +14,10 @@ const FeaturedProducts = () => {
 
   console.log(data,isLoading)
 
+  // 1. if loading  -> render loading component
+  // 1. if data.length === 0  -> render data not found component
+  // 1. if all ok  -> render data(products card)
+
   return (
     <div className='mt-10 px-36'>
       <ComponentTitle
