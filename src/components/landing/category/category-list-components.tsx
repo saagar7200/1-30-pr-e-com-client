@@ -25,7 +25,7 @@ const CategoryList = () => {
 
                 {
                     isLoading ? 
-                    Array.from({length:9},(_,i:number)=> i + 1).map((data) => <CategoryCardLoader key={data}/>)
+                    Array.from({length:12},(_,i:number)=> i + 1).map((data) => <CategoryCardLoader key={data}/>)
                     :
                     data?.data.map((category:ICategoryData,) => <CategoryCard key={category._id} category={category}/>)
                 }

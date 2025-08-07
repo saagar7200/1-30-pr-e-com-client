@@ -1,3 +1,4 @@
+import Footer from "../components/footer"
 import NavBar from "../components/header"
 import CategoryList from "../components/landing/category/category-list-components"
 import FeaturedProducts from "../components/landing/feraured-products"
@@ -16,6 +17,7 @@ const HomePage = () =>{
             <FeaturedProducts/>
             <MostSale/>
             <SummerSale/>
+            <Footer/>
         </main>
     )
 

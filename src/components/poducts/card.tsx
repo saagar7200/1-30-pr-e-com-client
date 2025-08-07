@@ -1,11 +1,16 @@
 
 import productImage from '../../assets/product.webp'
+import type { IProductData } from '../../types/product.types'
 
 // define props type
+type IProps = {
+    product:IProductData
+}
 
 
 
-const ProductCard = () => {
+const ProductCard = ({product}:IProps) => {
+    console.log(product)
     return (
         <div className='max-w-[300px] flex flex-col p-4 py-8 bg-[#f8f8f8] rounded-md'>
             {/* image */}
@@ -27,7 +32,8 @@ const ProductCard = () => {
                 {/* product.description */}
                 <p className='text-[12px] mt-2 line-clamp-2'>16" WUXGA | Ryzen 7000 | 16GB RAM
                     | 512GB SSD | Radeon Graphics
-                    Intel Xeon E-2336 | 32GB RAM | 1TB NVMe SSD | Remote Management</p>
+                    Intel Xeon E-2336 | 32GB RAM | 1TB NVMe SSD | Remote Management
+                </p>
             </div>
             <div className='flex mt-2 justify-between text-lg'>
                 {/* price */}
