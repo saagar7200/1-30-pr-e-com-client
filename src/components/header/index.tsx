@@ -1,6 +1,7 @@
 import NavLinks from './nav-links'
 import { GrFavorite } from "react-icons/gr";
 import { LiaCartPlusSolid } from "react-icons/lia";
+import { Link } from 'react-router';
 
 const NavBar = () => {
     return (
@@ -23,19 +24,21 @@ const NavBar = () => {
             {/* icons */}
             <div className='flex items-center gap-4'>
                 {/* wishlist */}
-                <div 
+                <Link
+                to={'/wish_list'} 
                 className='cursor-pointer w-fit bg-[#F8F8F8] p-3 rounded-full flex items-center justify-center'
                 >
                     <GrFavorite size={26} className='text-indigo-600' />
-                </div>
+                </Link>
                 {/* cart */}
 
-                <div
+                <Link
+                to={'/cart'}
                 className='cursor-pointer w-fit bg-[#F8F8F8] p-2 rounded-full flex items-center justify-center'
                 
                 >
                     <LiaCartPlusSolid size={30} className='mb-1 text-indigo-600'/>
-                </div>
+                </Link>
 
             </div>
         </nav>

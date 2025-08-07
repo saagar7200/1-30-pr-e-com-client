@@ -8,6 +8,8 @@ import Products from './pages/products'
 import AbouUs from './pages/about'
 import ContactUs from './pages/contact-us'
 import NotFound from './pages/page-not-found'
+import ClientLayout from './layouts/client.layout'
+import Wishlist from './pages/wishlist'
 
 function App() {
 
@@ -15,14 +17,18 @@ function App() {
     <>
     <Router>
       <Routes>
-        {/* defining page routes */}
-        <Route path='/' element={<HomePage/>}/>
-        <Route path='/products' element={<Products/>}/>
-        <Route path='/about_us' element={<AbouUs/>}/>
-        <Route path='/contact_us' element={<ContactUs/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/sign-up' element={<Register/>}/>
-        <Route path='*' element={<NotFound/>}/>
+
+        {/* defining page routes */}
+        <Route  path='/' element={<ClientLayout/>}>
+          <Route path='/' element={<HomePage/>}/>
+          <Route path='/products' element={<Products/>}/>
+          <Route path='/about_us' element={<AbouUs/>}/>
+          <Route path='/contact_us' element={<ContactUs/>}/>
+          <Route path='/wish_list' element={<Wishlist/>}/>
+          <Route path='*' element={<NotFound/>}/>
+        </Route>
       </Routes>
     </Router> 
     </>

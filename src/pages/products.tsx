@@ -1,11 +1,10 @@
-import NavBar from '../components/header'
-import AllProductList from '../components/products/product_list'
+
+import AllProductList from '../components/poducts/product_list'
 
 const Products = () => {
   return (
     <main>
-        <NavBar/>
-        <div className='px-36'>
+        <div className='px-36 min-h-[80vh]'>
             <AllProductList/>
         </div>
       
