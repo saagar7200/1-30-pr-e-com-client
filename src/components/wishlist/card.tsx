@@ -4,7 +4,7 @@ import type { IProductData } from '../../types/product.types'
 import { GoTrash } from "react-icons/go";
 // define props type
 type IProps = {
-    product:IProductData
+    product: IProductData
 }
 
 
@@ -15,7 +15,7 @@ const WishlistProductCard = () => {
         <div className='relative max-w-[300px] flex flex-col p-4 py-8 bg-[#f8f8f8] rounded-md'>
 
             <div className='absolute top-4 right-4 w-fit h-fit cursor-pointer'>
-                <GoTrash size={22} className='text-red-500'/>
+                <GoTrash size={22} className='text-red-500' />
             </div>
 
             {/* image */}
@@ -58,3 +58,33 @@ const WishlistProductCard = () => {
 }
 
 export default WishlistProductCard
+
+
+
+// app    store / context ={count,user}
+
+// comp A comp B .... compZ
+
+// comp A 
+// count = 1
+// user 
+
+// com B 
+
+// com c
+// .....
+
+
+// comp Z 
+
+
+// context api
+// redux 
+// mobX
+// zustland
+
+
+// user  -> context 
+//  user, token 
+// provider 
+// consumer
