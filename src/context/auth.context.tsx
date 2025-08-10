@@ -6,8 +6,8 @@ interface IAuthContextType {
   user: IUser | null;
   isLoading: boolean;
   token: string | null;
-  setUser: (user: IUser) => void;
-  setToken: (token: string) => void;
+  setUser: (user: IUser | null) => void;
+  setToken: (token: string | null) => void;
 }
 
 const defaultValues = {
@@ -61,3 +61,5 @@ export const AuthProvider = ({
 // const {} =useContext(context_name)
 
 // const {user} = useContext(AuthContext)
+
+

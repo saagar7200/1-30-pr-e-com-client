@@ -27,7 +27,7 @@ const FeaturedProducts = () => {
       title='Featured Products'
       subTitle='Our featured products'
       key={'featured_component_title'}
-      link='#'
+      link='/products'
       />
       <div className='mt-4 flex flex-wrap gap-6'>
 
