@@ -1,6 +1,9 @@
 
+import { useMutation } from '@tanstack/react-query'
 import productImage from '../../assets/product.webp'
 import type { IProductData } from '../../types/product.types'
+import { addToWishlist } from '../../api/wishlist.api'
+import toast from 'react-hot-toast'
 
 // define props type
 type IProps = {
@@ -9,7 +12,29 @@ type IProps = {
 
 
 const ProductCard = ({ product }: IProps) => {
-    console.log(product)
+    // console.log(product)
+
+    // * mutation for add to wishlist
+    const {mutate,isPending} = useMutation({
+        mutationFn:addToWishlist,
+        mutationKey:['add_to_wishlist'],
+        onSuccess:(response) =>{
+            console.log(response)
+            toast.success(response.message)
+        },
+        onError:(error)=>{
+            toast.error(error?.message || 'Something went wrong')
+        }
+    })
+
+    const handleClick = () =>{
+        if(product){
+
+            mutate(product._id)
+        }else{
+            toast.error('This is dummy product. Can not added to wishlist')
+        }
+    }
     return (
         <div className='max-w-[300px] flex flex-col p-4 py-8 bg-[#f8f8f8] rounded-md'>
             {/* image */}
@@ -46,8 +71,11 @@ const ProductCard = ({ product }: IProps) => {
                 <button className=' bg-[#A31621] w-full p-2 rounded-md text-white text-[16px] font-[500] cursor-pointer'>
                     View Detail
                 </button>
-                <button className=' border border-[#A31621]  w-full p-2 px-1 rounded-md text-[#A31621] text-[16px] font-[500] cursor-pointer'>
-                    Add to wishlist
+                <button 
+                disabled={isPending}
+                onClick={handleClick}
+                className=' disabled:cursor-not-allowed border border-[#A31621]  w-full p-2 px-1 rounded-md text-[#A31621] text-[16px] font-[500] cursor-pointer'>
+                    { isPending ?  "Adding to list.." : "Add to wishlist" }
                 </button>
             </div>
 

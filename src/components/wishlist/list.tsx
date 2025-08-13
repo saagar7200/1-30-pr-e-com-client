@@ -1,10 +1,18 @@
+import { useQuery } from "@tanstack/react-query"
 import WishlistProductCard from "./card"
+import { getWishlist } from "../../api/wishlist.api"
+import type { IProductData } from "../../types/product.types"
+import ProductCardLoader from "../loaders/product-loader"
 
 const List = () => {
 
     // integrate with backend
 
     // 1. api / query function
+    const { isLoading, data } = useQuery({
+        queryFn: getWishlist,
+        queryKey: ['get_wishlist']
+    })
     // 2. use reactQuery useQuery hook to get  data/wishlist
 
 
@@ -16,7 +24,12 @@ const List = () => {
 
             <div className="grid grid-cols-5 gap-6">
                 {
-                    arr.map((data) => <WishlistProductCard key={data} />)
+                    isLoading ?
+
+                        arr.map(data => <ProductCardLoader key={data} />)
+                        :
+
+                        data?.data?.data.map((product: IProductData) => <WishlistProductCard product={product} key={product._id} />)
                 }
             </div>
 
