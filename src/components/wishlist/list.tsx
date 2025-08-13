@@ -3,6 +3,7 @@ import WishlistProductCard from "./card"
 import { getWishlist } from "../../api/wishlist.api"
 import type { IProductData } from "../../types/product.types"
 import ProductCardLoader from "../loaders/product-loader"
+import EmptyWishlist from "./empty-card"
 
 const List = () => {
 
@@ -21,6 +22,13 @@ const List = () => {
 
     return (
         <div className="w-full h-full">
+            
+            {
+                !isLoading && data?.data?.data.length === 0 && <div className="h-full flex justify-center items-center">
+                    <EmptyWishlist/>
+
+                </div>
+            }
 
             <div className="grid grid-cols-5 gap-6">
                 {
