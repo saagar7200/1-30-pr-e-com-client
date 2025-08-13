@@ -4,12 +4,11 @@ import type { IProductData } from '../../types/product.types'
 
 // define props type
 type IProps = {
-    product:IProductData
+    product: IProductData
 }
 
 
-
-const ProductCard = ({product}:IProps) => {
+const ProductCard = ({ product }: IProps) => {
     console.log(product)
     return (
         <div className='max-w-[300px] flex flex-col p-4 py-8 bg-[#f8f8f8] rounded-md'>
@@ -17,7 +16,7 @@ const ProductCard = ({product}:IProps) => {
             <div className='max-h-[180px] w-[180px]  mx-auto cursor-pointer'>
                 <img
                     // cover_image
-                    src={productImage}
+                    src={product?.coverImage?.path ?? productImage}
                     alt='Product Image'
                     className='h-full w-full object-contain  hover:scale-110 transition-all duration-300 hover:grayscale-40'
                 />
@@ -27,19 +26,20 @@ const ProductCard = ({product}:IProps) => {
             <div className='mt-5'>
                 {/* product.name */}
                 <h1 className='text-[#A31621] font-bold text-[16px] line-clamp-1'>
-                    ThinkBook 16 Gen 7(16,AMD)
+                    {product?.name ?? 'ThinkBook 16 Gen 7(16,AMD)'}
                 </h1>
                 {/* product.description */}
-                <p className='text-[12px] mt-2 line-clamp-2'>16" WUXGA | Ryzen 7000 | 16GB RAM
+                <p className='text-[12px] mt-2 line-clamp-2'>
+                    {product?.description ?? `16" WUXGA | Ryzen 7000 | 16GB RAM
                     | 512GB SSD | Radeon Graphics
-                    Intel Xeon E-2336 | 32GB RAM | 1TB NVMe SSD | Remote Management
-                </p>
+                    Intel Xeon E-2336 | 32GB RAM | 1TB NVMe SSD | Remote Management`
+                    }</p>
             </div>
             <div className='flex mt-2 justify-between text-lg'>
                 {/* price */}
-                <p className='text-[14px]'>Rs.124908</p>
+                <p className='text-[14px]'>{new Intl.NumberFormat('en-NP', { style: 'currency', currency: 'NPR' }).format(product?.price ?? 12345)}</p>
                 {/* stock */}
-                <p>stock: <span className='text-green-500  text-[14px]'>5</span></p>
+                <p>stock: <span className={`${product?.stock > 5 ? 'text-green-600' : 'text-red-500'}  text-[14px]`}>{product?.stock ?? 10}</span></p>
 
             </div>
             <div className=' flex justify-between mt-5 gap-3'>
