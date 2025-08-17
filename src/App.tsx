@@ -10,6 +10,7 @@ import ContactUs from './pages/contact-us'
 import NotFound from './pages/page-not-found'
 import ClientLayout from './layouts/client.layout'
 import Wishlist from './pages/wishlist'
+import CartPage from './pages/cart'
 import ProductDetailPage from './pages/prodct-detail'
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
           <Route path='/about_us' element={<AbouUs/>}/>
           <Route path='/contact_us' element={<ContactUs/>}/>
           <Route path='/wish_list' element={<Wishlist/>}/>
+          <Route path='/cart' element={<CartPage/>}/>
           <Route path='*' element={<NotFound/>}/>
         </Route>
       </Routes>

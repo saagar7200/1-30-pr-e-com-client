@@ -1,24 +1,22 @@
 import { withAuth } from "../components/hoc/with-auth.hoc"
 import ComponentTitle from "../components/landing/conponent-title-with-button"
-import List from "../components/wishlist/list"
 import { Role } from "../types/enums"
 
-const Wishlist = () => {
+const CartPage = () => {
     return (
         <main className="px-36 mt-5">
             <ComponentTitle
-                title={"Your Dream List"}
+                title={"Your Dream List (cart)"}
                 subTitle={"Easily find and shop the products you have saved"}
             />
-            {/* wishlisted products */}
+            {/* CartPage products */}
             <div>
-                <List />
             </div>
 
         </main>
     )
 }
 
-const Component =  withAuth(Wishlist,[Role.USER])
+const Component =  withAuth(CartPage,[Role.USER])
 
 export default Component

@@ -26,7 +26,6 @@ const navLinks = [
 const NavLinks = () => {
 
     const location = useLocation()
-    console.log(location)
     return (
         <div className='flex items-center gap-6'> 
             {

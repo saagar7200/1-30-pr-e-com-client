@@ -22,6 +22,19 @@ export const getAllProducts = async () => {
   }
 };
 
+//* get by id
+export const getProductById = async(id:string) =>{
+  try{
+    const response = await api.get(`/product/${id}`);
+    return response.data
+
+  }catch (error: any) {
+    throw error.response.data;
+  }
+
+}
+
+
 //* get most sale
 
 //* get summer sale

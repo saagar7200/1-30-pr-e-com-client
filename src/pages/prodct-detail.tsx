@@ -1,13 +1,14 @@
-import ComponentTitle from '../components/landing/conponent-title-with-button'
+import { useParams } from 'react-router'
+import ProductDetail from '../components/product-detail'
 
 const ProductDetailPage = () => {
+  const {id} = useParams()
+  // console.log('Product id',id)
   return (
     <main className='px-36'>
-        <ComponentTitle
-            title='ThinkBook 16 Gen 7(16,AMD)'
-            subTitle='16" WUXGA | Ryzen 7000 | 16GB RAM | 512GB SSD | Radeon Graphics Intel Xeon E-2336 | 32GB'
-        />
+       
         {/* detail components */}
+        <ProductDetail id={id ?? ''}/>
       
     </main>
   )

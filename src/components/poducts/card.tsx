@@ -4,6 +4,7 @@ import productImage from '../../assets/product.webp'
 import type { IProductData } from '../../types/product.types'
 import { addToWishlist } from '../../api/wishlist.api'
 import toast from 'react-hot-toast'
+import { Link } from 'react-router'
 
 // define props type
 type IProps = {
@@ -68,9 +69,11 @@ const ProductCard = ({ product }: IProps) => {
 
             </div>
             <div className=' flex justify-between mt-5 gap-3'>
+                <Link className='w-full' to={`/product/${product?._id ?? '1'}?name=${product?.name}`}>
                 <button className=' bg-[#A31621] w-full p-2 rounded-md text-white text-[16px] font-[500] cursor-pointer'>
                     View Detail
                 </button>
+                </Link>
                 <button 
                 disabled={isPending}
                 onClick={handleClick}
