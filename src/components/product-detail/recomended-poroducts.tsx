@@ -1,5 +1,4 @@
 import { useQuery } from '@tanstack/react-query'
-import React from 'react'
 import { getFeaturedProducts } from '../../api/product.api'
 import ComponentTitle from '../landing/conponent-title-with-button'
 import NotFoundComponent from '../common/not-found-card/not-found'
