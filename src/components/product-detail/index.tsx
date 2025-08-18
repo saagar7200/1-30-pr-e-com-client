@@ -2,9 +2,9 @@ import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { getProductById } from "../../api/product.api";
 import ComponentTitle from "../landing/conponent-title-with-button";
-import ImageSection from "./image-section";
 import DescriptionSection from "./description-section";
 import RecomendedSection from "./recomended-poroducts";
+import ProductImageSlider from "./image-carousel";
 
 interface IProps {
   id: string;
@@ -29,8 +29,8 @@ const ProductDetail: React.FC<IProps> = ({ id }) => {
         subTitle={data?.data?.description}
       />
       <div className="grid grid-cols-2 gap-6">
-        <div className="max-h-[550px]">
-          <ImageSection name={data?.data?.name} images={data?.data?.images} />
+        <div className="h-[550px]">
+          <ProductImageSlider name={data?.data?.name} images={data?.data?.images} />
         </div>
         {/* desc section */}
         <div className="">
