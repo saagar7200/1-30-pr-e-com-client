@@ -10,7 +10,7 @@ interface IProps {
 
 const ProductImageSlider:React.FC<IProps> = ({images}) => {
   return (
-    <div className='w-full h-[600px] rounded-md  overflow-clip'>
+    <div className='w-full lg:h-[600px] rounded-md  overflow-clip'>
         <Carousel data={images} Children={Images}/>
     </div>
   )
@@ -25,7 +25,7 @@ return (
         <img
         src={data.path}
         alt={'product iamge'}
-        className='w-full h-full object-contain'
+        className='w-full  max-h-[500px] object-contain'
         />
 
     </div>

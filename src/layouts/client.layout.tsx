@@ -6,7 +6,7 @@ const ClientLayout = () => {
   return (
     <main>
       {/* nav section */}
-      <div>
+      <div className="hidden lg:block">
         <NavBar />
       </div>
 

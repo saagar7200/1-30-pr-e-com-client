@@ -23,13 +23,13 @@ const ProductDetail: React.FC<IProps> = ({ id }) => {
   console.log(data);
 
   return (
-    <div>
+    <div className="mt-3">
       <ComponentTitle
         title={data?.data?.name}
         subTitle={data?.data?.description}
       />
-      <div className="grid grid-cols-2 gap-6">
-        <div className="h-[550px]">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10">
+        <div className="lg:h-[550px]">
           <ProductImageSlider name={data?.data?.name} images={data?.data?.images} />
         </div>
         {/* desc section */}

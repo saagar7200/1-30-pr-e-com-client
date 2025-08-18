@@ -2,6 +2,9 @@ import React, { useState } from 'react'
 import type { IProductData } from '../../types/product.types'
 import { MdOutlineStar } from "react-icons/md";
 import { CiShoppingTag } from "react-icons/ci";
+import { useMutation } from '@tanstack/react-query';
+import { addToCart } from '../../api/cart.api';
+import toast from 'react-hot-toast';
 interface IProps {
     product: IProductData
 }
@@ -9,6 +12,18 @@ interface IProps {
 const DescriptionSection: React.FC<IProps> = ({ product }) => {
 
     const [quantity, setQuantity] = useState(1)
+
+    const {mutate,isPending} = useMutation({
+        mutationFn:addToCart,
+        mutationKey:['add_to_cart'],
+        onSuccess:(response)=>{
+            toast.success(response.message);
+        
+        },
+        onError:(error)=>{
+            toast.error(error.message)
+        }
+    })
 
     const increaseQuantity = () => {
         setQuantity(Number(quantity) + 1)
@@ -19,7 +34,12 @@ const DescriptionSection: React.FC<IProps> = ({ product }) => {
             setQuantity(Number(quantity) - 1)
         }
     }
-    const isPending = false
+
+    const addProductToWishList = () =>{
+        mutate({productId:product._id,quantity})
+    }
+
+
     return (
         <div className='tracking-wider'>
             {/* name ,price , stock */}
@@ -40,7 +60,7 @@ const DescriptionSection: React.FC<IProps> = ({ product }) => {
 
                 </div>
                 <p>Brand</p>
-                <div className='flex gap-2 items-center mt-2'>
+                <div className='bg-[#f8f8f8] flex gap-2 items-center text-gray-600 mt-2 border border-gray-300 w-fit px-3 py-1 rounded-md'>
                     <CiShoppingTag size={20}/>
                     <span>{product.category.name}</span>
                 </div>
@@ -50,10 +70,10 @@ const DescriptionSection: React.FC<IProps> = ({ product }) => {
 
             <div className=' mt-6'>
                 <p>Quantity:</p>
-                <div className='flex items-center h-[50px] rounded-md border border-gray-200 w-fit overflow-clip mt-2'>
+                <div className='flex items-center h-[50px] rounded-md border border-gray-200 md:w-fit overflow-clip mt-2'>
                     <button disabled={Number(quantity) === 1} onClick={decreaseQuantity} className='disabled:cursor-not-allowed text-2xl  h-full px-3 cursor-pointer bg-[#F8F8F8] aspect-square'>-</button>
                     <input
-                        className='h-full px-1 outile-none border-none focus:outline-none text-center'
+                        className='h-full px-1 outile-none w-full border-none focus:outline-none text-center'
                         defaultValue={1}
                         value={quantity}
 
@@ -65,8 +85,11 @@ const DescriptionSection: React.FC<IProps> = ({ product }) => {
 
 
             {/* button section */}
-            <div className=' flex justify-between mt-6 gap-10'>
-                <button className=' bg-[#A31621] w-full p-3 rounded-md text-white text-[16px] font-[500] cursor-pointer'>
+            <div className=' flex justify-between mt-10 lg:mt-6 gap-4 lg:gap-10'>
+                <button 
+                onClick={addProductToWishList}
+                disabled={isPending}
+                className='disabled:cursor-not-allowed disabled:bg-[#a31622b4] bg-[#A31621] w-full p-3 rounded-md text-white text-[16px] font-[500] cursor-pointer'>
                     Add to Cart
                 </button>
                 <button

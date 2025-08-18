@@ -5,7 +5,7 @@ const ProductDetailPage = () => {
   const {id} = useParams()
   // console.log('Product id',id)
   return (
-    <main className='px-36'>
+    <main className='px-2 lg:px-36'>
        
         {/* detail components */}
         <ProductDetail id={id ?? ''}/>
