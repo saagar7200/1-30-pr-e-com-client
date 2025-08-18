@@ -5,22 +5,22 @@ import heroImage from '../../assets/hero-1.jpg'
 
 const Hero = () => {
   return (
-    <div id={'hero-section'} className="w-full  h-[85vh] relative">
+    <div id={'hero-section'} className="w-full h-[60vh]  lg:h-[85vh] relative">
 
     {/* overlay */}
     <div className='bg-black/40 absolute  inset-0'></div>
 
       <img
         src={heroImage}
-        className='h-full w-full'
+        className='h-full w-full object-cover object-right md:object-none'
       />
       {/* hero information */}
-      <div className='absolute top-[30%] bottom-1/2 left-20 max-w-[700px]'>
+      <div className='absolute top-[30%] bottom-1/2 left-2 md:left-20 max-w-[700px]'>
         <div >
-        <h1 className='text-5xl text-[#A31621] font-extrabold'>
+        <h1 className='text-3xl lg:text-5xl text-[#A31621] font-extrabold'>
           Your One-Stop Online Destination
         </h1>
-        <p className='text-lg text-[#FCF7F8] mt-2'>
+        <p className='text-[15px] md:text-lg text-[#FCF7F8] mt-2'>
 
           Discover a wide range of high-quality products, carefully 
           curated to match your lifestyle. Whether you&apos;re upgrading your wardrobe, 

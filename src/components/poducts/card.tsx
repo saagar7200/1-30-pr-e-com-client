@@ -37,7 +37,7 @@ const ProductCard = ({ product }: IProps) => {
         }
     }
     return (
-        <div className='max-w-[300px] flex flex-col p-4 py-8 bg-[#f8f8f8] rounded-md'>
+        <div className='w-full sm:max-w-[300px]  flex flex-col p-4 py-8 bg-[#f8f8f8] rounded-md'>
             {/* image */}
             <div className='max-h-[180px] w-[180px]  mx-auto cursor-pointer'>
                 <img

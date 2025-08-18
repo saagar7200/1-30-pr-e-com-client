@@ -16,12 +16,12 @@ const CategoryList = () => {
 
 
     return (
-        <div className='mt-10 px-36'>
+        <div className='mt-10 px-4 lg:px-36'>
             <ComponentTitle
                 title='Browse Our Best Selling Product Categories'
                 subTitle='Discover top-rated products by category loved by our customers.'
             />
-            <div className='grid grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6'>
+            <div className='grid sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6'>
 
                 {
                     isLoading ? 

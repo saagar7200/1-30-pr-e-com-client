@@ -19,7 +19,7 @@ const RecomendedSection = () => {
       key={'related_component_title'}
     //   link='/products'
       />
-      <div className='mt-4 flex flex-wrap gap-6'>
+      <div className='mt-4 flex flex-wrap gap-6 px-4 sm:px-0'>
 
         <div className='w-full'>
           {

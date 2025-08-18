@@ -5,7 +5,7 @@ import ComponentTitle from './conponent-title-with-button'
 
 const SummerSale = () => {
   return (
-    <div className='mt-10 px-36'>
+    <div className='mt-10 px-4 lg:px-36'>
       <ComponentTitle
       title='Summer Sale'
       subTitle='speacial summer sale'

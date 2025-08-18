@@ -22,7 +22,7 @@ const FeaturedProducts = () => {
   // 1. if all ok  -> render data(products card)
 
   return (
-    <div className='mt-10 px-36'>
+    <div className='mt-10 px-4 lg:px-36'>
       <ComponentTitle
       title='Featured Products'
       subTitle='Our featured products'
