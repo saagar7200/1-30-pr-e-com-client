@@ -12,7 +12,7 @@ const Hero = () => {
 
       <img
         src={heroImage}
-        className='h-full w-full object-cover object-right md:object-none'
+        className='h-full w-full object-cover object-right md:object-none lg:object-fill'
       />
       {/* hero information */}
       <div className='absolute top-[30%] bottom-1/2 left-2 md:left-20 max-w-[700px]'>

@@ -12,6 +12,9 @@ import ClientLayout from './layouts/client.layout'
 import Wishlist from './pages/wishlist'
 import CartPage from './pages/cart'
 import ProductDetailPage from './pages/prodct-detail'
+import Dashboard from './pages/admin'
+import CategoryList from './pages/admin/category'
+import AdminLayout from './layouts/admin.layout'
 
 function App() {
 
@@ -23,6 +26,7 @@ function App() {
         <Route path='/sign-up' element={<Register/>}/>
 
         {/* defining page routes */}
+        {/* client */}
         <Route  path='/' element={<ClientLayout/>}>
           <Route path='/' element={<HomePage/>}/>
           <Route path='/products' element={<Products/>}/>
@@ -33,6 +37,13 @@ function App() {
           <Route path='/wish_list' element={<Wishlist/>}/>
           <Route path='/cart' element={<CartPage/>}/>
           <Route path='*' element={<NotFound/>}/>
+        </Route>
+
+        {/* admin routes */}
+        <Route path='/admin' element={<AdminLayout/>}>
+
+          <Route path='/admin' element={<Dashboard/>}/>
+          <Route path='/admin/category' element={<CategoryList/>}/>
         </Route>
       </Routes>
     </Router> 
