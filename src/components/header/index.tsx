@@ -103,10 +103,14 @@ export const LoggedInUsersection = ({ user, logout }: { user: IUser | null, logo
 
       {/*  */}
       <div>
-        <p className="font-semibold italic text-lg capitalize">
+        {user?.first_name ? <p className="font-semibold italic text-lg capitalize">
           {user?.first_name} {user?.last_name}
+        </p> :
+        <p className="font-semibold italic text-lg capitalize">
+          {user?.full_name as string} 
         </p>
-        <p onClick={logout} className="text-indigo-900 cursor-pointer">
+        }
+        <p onClick={logout} className="text-indigo-900 font-semibold cursor-pointer">
           Log out{" "}
         </p>
       </div>
