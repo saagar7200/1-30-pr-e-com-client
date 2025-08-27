@@ -3,7 +3,7 @@
 
 import { LuLayoutDashboard } from "react-icons/lu";
 import { SlTag } from "react-icons/sl";
-import { Link } from 'react-router';
+import { Link, useLocation } from 'react-router';
 
 const sidebarLinks = [
     {
@@ -18,27 +18,30 @@ const sidebarLinks = [
     },
     {
         label: 'Brands',
-        link: '/admin/category',
+        link: '/admin/brands',
         icon: <SlTag size={24} />
     },
     {
         label: 'Products',
-        link: '/admin/category',
+        link: '/admin/products',
         icon: <SlTag size={24} />
     },
     {
         label: 'Users',
-        link: '/admin/category',
+        link: '/admin/users',
         icon: <SlTag size={24} />
     },
     {
         label: 'Orders',
-        link: '/admin/category',
+        link: '/admin/orders',
         icon: <SlTag size={24} />
     }
 ]
 
 const SideBar = () => {
+    const location = useLocation()
+    console.log(location)
+
     return (
         <aside>
             {/* logo */}
@@ -55,14 +58,17 @@ const SideBar = () => {
             {/* sidebar navigation */}
             <div className='flex flex-col gap-1'>
                 {
-                    sidebarLinks.map((item) => (
-                        <Link to={item.link}>
-                            <div className='flex items-center gap-2 px-2 hover:bg-blue-600 group py-3 rounded-sm'>
-                                <div className='text-blue-600 group-hover:text-white'>{item.icon}</div>
-                                <p className='text-lg font-semibold text-blue-700 group-hover:text-white'>{item.label}</p>
+                    sidebarLinks.map((item) => {
+                        const isActive = item.link === location.pathname
+                        return(<Link to={item.link}>
+                            <div className={`flex items-center gap-2 px-2 hover:bg-blue-600 group  
+                                ${isActive ? "bg-blue-600 group text-white" :'text-blue-700'} py-3 rounded-sm`}>
+                                <div className={`text-blue-600 group-hover:text-white
+                                     ${isActive ? "text-white" : 'text-blue-700'}`}>{item.icon}</div>
+                                <p className='text-lg font-semibold  group-hover:text-white'>{item.label}</p>
                             </div>
-                        </Link>
-                    ))
+                        </Link>)
+                    })
                 }
 
             </div>

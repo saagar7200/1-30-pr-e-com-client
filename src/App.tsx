@@ -44,6 +44,8 @@ function App() {
 
           <Route path='/admin' element={<Dashboard/>}/>
           <Route path='/admin/category' element={<CategoryList/>}/>
+          <Route path='*' element={<NotFound/>}/>
+
         </Route>
       </Routes>
     </Router> 
