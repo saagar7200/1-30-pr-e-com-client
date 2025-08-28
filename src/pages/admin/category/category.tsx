@@ -1,4 +1,4 @@
-import PageTitle from '../../components/admin/page-title'
+import PageTitle from '../../../components/admin/page-title'
 
 function CategoryList() {
   return (

@@ -13,8 +13,9 @@ import Wishlist from './pages/wishlist'
 import CartPage from './pages/cart'
 import ProductDetailPage from './pages/prodct-detail'
 import Dashboard from './pages/admin'
-import CategoryList from './pages/admin/category'
+import CategoryList from './pages/admin/category/category'
 import AdminLayout from './layouts/admin.layout'
+import CreteCategory from './pages/admin/category/create-category'
 
 function App() {
 
@@ -44,6 +45,7 @@ function App() {
 
           <Route path='/admin' element={<Dashboard/>}/>
           <Route path='/admin/category' element={<CategoryList/>}/>
+          <Route path='/admin/add/category' element={<CreteCategory/>}/>
           <Route path='*' element={<NotFound/>}/>
 
         </Route>

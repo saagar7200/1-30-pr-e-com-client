@@ -61,7 +61,7 @@ const SideBar = () => {
                     sidebarLinks.map((item) => {
                         const isActive = item.link === location.pathname
                         return(<Link to={item.link}>
-                            <div className={`flex items-center gap-2 px-2 hover:bg-blue-600 group  
+                            <div className={`flex items-center gap-2 px-2 hover:bg-blue-500 group  
                                 ${isActive ? "bg-blue-600 group text-white" :'text-blue-700'} py-3 rounded-sm`}>
                                 <div className={`text-blue-600 group-hover:text-white
                                      ${isActive ? "text-white" : 'text-blue-700'}`}>{item.icon}</div>

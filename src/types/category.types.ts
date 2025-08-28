@@ -5,3 +5,9 @@ export interface ICategoryData {
     createdAt:string;
     updatedAt:string
 }
+
+export interface ICategory {
+    name:string,
+    description?:string,
+
+}
