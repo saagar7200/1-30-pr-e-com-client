@@ -31,12 +31,12 @@ const Input: FC<IProps> = ({ id, label, name, type = 'text', placeholder, requir
                 {required && <LuAsterisk size={12} className="text-red-500 mt-1" />}
             </div>
             {/* input */}
-            <div className="w-full flex items-center relative mt-6 ">
+            <div className="w-full flex items-center relative mt-6 bg-white">
                 <input
                     {...register(name)}
                     value={watch(name)}
                     className={
-                        `absolute left-0 right-0 w-full border overflow-clip ${errors[name] ? 'border-red-500 focus:outline-red-500' : 'border-blue-500 focus:outline-blue-500'}
+                        `bg-white absolute left-0 right-0 w-full border overflow-clip ${errors[name] ? 'border-red-500 focus:outline-red-500' : 'border-blue-500 focus:outline-blue-500'}
                      p-3 rounded-md placeholder:text-lg text-lg `
                     }
                     placeholder={placeholder}

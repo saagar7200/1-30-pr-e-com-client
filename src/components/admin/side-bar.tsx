@@ -2,6 +2,9 @@
 
 
 import { LuLayoutDashboard } from "react-icons/lu";
+import { PiUsersThreeBold } from "react-icons/pi";
+import { MdOutlineBrandingWatermark ,MdProductionQuantityLimits} from "react-icons/md";
+import { FaListCheck } from "react-icons/fa6";
 import { SlTag } from "react-icons/sl";
 import { Link, useLocation } from 'react-router';
 
@@ -19,22 +22,22 @@ const sidebarLinks = [
     {
         label: 'Brands',
         link: '/admin/brands',
-        icon: <SlTag size={24} />
+        icon: <MdOutlineBrandingWatermark size={24} />
     },
     {
         label: 'Products',
         link: '/admin/products',
-        icon: <SlTag size={24} />
+        icon: <MdProductionQuantityLimits size={24} />
     },
     {
         label: 'Users',
         link: '/admin/users',
-        icon: <SlTag size={24} />
+        icon: <PiUsersThreeBold size={24} />
     },
     {
         label: 'Orders',
         link: '/admin/orders',
-        icon: <SlTag size={24} />
+        icon: <FaListCheck size={24} />
     }
 ]
 

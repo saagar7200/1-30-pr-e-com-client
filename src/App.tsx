@@ -4,7 +4,7 @@ import HomePage from './pages/home'
 import Login from './pages/auth/login'
 import Register from './pages/auth/register'
 import {BrowserRouter as Router , Routes,Route} from 'react-router'
-import Products from './pages/products'
+import Products from './pages/admin/product'
 import AbouUs from './pages/about'
 import ContactUs from './pages/contact-us'
 import NotFound from './pages/page-not-found'
@@ -16,6 +16,11 @@ import Dashboard from './pages/admin'
 import CategoryList from './pages/admin/category/category'
 import AdminLayout from './layouts/admin.layout'
 import CreteCategory from './pages/admin/category/create-category'
+import Brands from './pages/admin/brands'
+import CreteBrand from './pages/admin/brands/create-brand'
+import Users from './pages/admin/users'
+import Orders from './pages/admin/orders'
+import CreteProduct from './pages/admin/product/create-product'
 
 function App() {
 
@@ -44,8 +49,20 @@ function App() {
         <Route path='/admin' element={<AdminLayout/>}>
 
           <Route path='/admin' element={<Dashboard/>}/>
+          {/* category */}
           <Route path='/admin/category' element={<CategoryList/>}/>
           <Route path='/admin/add/category' element={<CreteCategory/>}/>
+          {/* brands */}
+          <Route path='/admin/brands' element={<Brands/>}/>
+          <Route path='/admin/add/brand' element={<CreteBrand/>}/>
+          {/* product */}
+          <Route path='/admin/products' element={<Products/>}/>
+          <Route path='/admin/add/product' element={<CreteProduct/>}/>
+          {/* users */}
+          <Route path='/admin/users' element={<Users/>}/>
+          {/* orders */}
+          <Route path='/admin/orders' element={<Orders/>}/>
+
           <Route path='*' element={<NotFound/>}/>
 
         </Route>
