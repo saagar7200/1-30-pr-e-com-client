@@ -107,6 +107,7 @@ export const LoggedInUsersection = ({ user, logout }: { user: IUser | null, logo
           {user?.first_name} {user?.last_name}
         </p> :
         <p className="font-semibold italic text-lg capitalize">
+          {/* @ts-expect-error //user name */}
           {user?.full_name as string} 
         </p>
         }

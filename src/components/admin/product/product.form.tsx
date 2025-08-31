@@ -4,6 +4,8 @@ import Input from '../../common/inputs/input'
 import TextArea from '../../common/inputs/text-area'
 import Button from '../../common/button'
 import CategorySelect from '../category-select'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { productSchema } from '../../../schema/product.schema'
 
 const ProductForm = () => {
 
@@ -15,13 +17,20 @@ const ProductForm = () => {
             stock: '',
             category: '',
             isFeatured: false,
-        }
+        },
+        resolver:yupResolver(productSchema)
     })
+
+    const handleSubmit = (data) =>{
+        console.log(data)
+    }
+
+    console.log(methods.formState.errors)
 
     return (
         <div className='py-10 px-14 w-[800px] mx-auto border border-gray-300 rounded-md '>
             <FormProvider {...methods}>
-                <form className='flex flex-col gap-4 '>
+                <form onSubmit={methods.handleSubmit(handleSubmit)} className='flex flex-col gap-4 '>
                     <Input
                         id='name'
                         label='Product Name'
@@ -30,7 +39,7 @@ const ProductForm = () => {
                         required
                     />
 
-                    <CategorySelect/>
+                    <CategorySelect />
 
                     <Input
                         id='price'
@@ -57,7 +66,7 @@ const ProductForm = () => {
                     />
 
                     <div className='flex gap-2 items-center mb-1 w-fit cursor-pointer'>
-                        <input type='checkbox' id={'featured'} className='h-4 w-4 cursor-pointer'/>
+                        <input {...methods.register('isFeatured')} type='checkbox' id={'featured'} className='h-4 w-4 cursor-pointer' />
                         <label className='font-semibold text-sm cursor-pointer' htmlFor='featured'>Save Featured product</label>
                     </div>
 

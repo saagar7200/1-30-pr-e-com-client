@@ -34,7 +34,7 @@ const TextArea: FC<IProps> = ({ id, label, name, placeholder, required = false }
                     {...register(name)}
                     value={watch(name)}
                     className={
-                        ` min-h-[200px] w-full border  ${errors[name] ? 'border-red-500 focus:outline-red-500' : 'border-blue-500 focus:outline-blue-500'}
+                        `bg-white min-h-[200px] w-full border  ${errors[name] ? 'border-red-500 focus:outline-red-500' : 'border-blue-500 focus:outline-blue-500'}
                      p-3 rounded-md placeholder:text-lg text-lg `
                     }
                     placeholder={placeholder}

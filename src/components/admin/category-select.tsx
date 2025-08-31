@@ -5,26 +5,26 @@ import type { ICategoryData } from "../../types/category.types"
 
 const CategorySelect = () => {
 
-    const {data,isLoading} = useQuery({
-        queryFn:getAllCategory,
-        queryKey:['get_all_category']
-    })
+  const { data, isLoading } = useQuery({
+    queryFn: getAllCategory,
+    queryKey: ['get_all_category']
+  })
 
-  if(isLoading){
+  if (isLoading) {
     return <p>Loading....</p>
   }
 
-const options = data?.data.map((cat:ICategoryData) => ({label:cat.name, value:cat._id}))
+  const options = data?.data.map((cat: ICategoryData) => ({ label: cat.name, value: cat._id }))
 
   return (
     <div>
-        <SelectInput
-            id="category"
-            label="Category"
-            placeholder="Select Category"
-            options={options}
-            required
-        />
+      <SelectInput
+        id="category"
+        label="Category"
+        placeholder="Select Category"
+        options={options}
+        required
+      />
 
     </div>
   )
