@@ -6,6 +6,7 @@ import Button from '../../common/button'
 import CategorySelect from '../category-select'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { productSchema } from '../../../schema/product.schema'
+import type { IProductDataFormData } from '../../../types/product.types'
 
 const ProductForm = () => {
 
@@ -17,15 +18,15 @@ const ProductForm = () => {
             stock: '',
             category: '',
             isFeatured: false,
+
         },
         resolver:yupResolver(productSchema)
     })
 
-    const handleSubmit = (data) =>{
+    const handleSubmit = (data:IProductDataFormData) =>{
         console.log(data)
     }
 
-    console.log(methods.formState.errors)
 
     return (
         <div className='py-10 px-14 w-[800px] mx-auto border border-gray-300 rounded-md '>

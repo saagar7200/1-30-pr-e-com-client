@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import type { ICategoryData } from "./category.types";
 
 export interface IImage {
@@ -15,4 +16,18 @@ export interface IProductData {
     price:number;
     category:ICategoryData;
     stock:number
+    
+}
+
+export interface IProductDataFormData {
+    name:string,
+    description?:string,
+    createdAt:string;
+    updatedAt:string;
+    coverImage?:any;
+    images?:any[];
+    price:number;
+    category:string;
+    stock:number,
+    isFeatured:boolean
 }

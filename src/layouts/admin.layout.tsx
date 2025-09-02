@@ -6,9 +6,9 @@ import SideBar from '../components/admin/side-bar'
 
 const AdminLayout = () => {
     return (
-        <main className='w-full h-full flex'>
+        <main className='w-full h-full flex overflow-clip'>
             {/* sidebar  */}
-            <div className='h-full w-[300px] border-r border-blue-300 shadow  px-1'>
+            <div className='h-full w-[300px] border-r  border-blue-300 shadow  px-1'>
                 <SideBar/>
             </div>
             <div className=' h-full w-full'>
@@ -19,7 +19,7 @@ const AdminLayout = () => {
                 </div>
 
                 {/* page content */}
-                <div className='p-6'>
+                <div className='p-6  overflow-scroll h-full'>
                     <Outlet />
                 </div>
 

@@ -10,15 +10,13 @@ import { useLocation, useNavigate } from "react-router"
 import toast from "react-hot-toast"
 import { useContext } from "react"
 import { AuthContext } from "../../../context/auth.context"
+import { Role } from "../../../types/enums"
 
 const LoginForm = () => {
 
     const { setUser, setToken } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation()
-
-    console.log(location)
-
     const from = location.state?.from?.pathname
 
     const methods = useForm({
@@ -34,15 +32,19 @@ const LoginForm = () => {
         mutationFn: login,
         onSuccess: (data) => {
             // store user object and token on local storage
-
             setUser(data.data.user)
             setToken(data.data.access_token)
             localStorage.setItem('user', JSON.stringify(data.data.user))
-            localStorage.setItem('access_token', data.data.access_token)
+            // localStorage.setItem('access_token', data.data.access_token)
             // toast message -> 
             toast.success(data.message ?? 'Login sucessfull')
             // redirected to home page
-            navigate(from ?? '/', { replace: true })
+            if (data.data.user.role === Role.ADMIN) {
+                navigate(from ?? '/admin', { replace: true })
+            } else {
+                navigate(from ?? '/', { replace: true })
+            }
+
 
         },
         onError: (error) => {

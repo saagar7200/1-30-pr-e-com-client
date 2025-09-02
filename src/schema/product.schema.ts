@@ -2,8 +2,8 @@ import * as yup from "yup";
 
 export const productSchema = yup.object().shape({
   name: yup.string().required("Product name is required"),
-//   category: yup.string().required("Category name is required"),
-  description: yup.string().nullable(),
+  category: yup.string().required("Category name is required"),
+  description: yup.string().optional(),
 
   // Single cover image (not array)
 //   coverImage: yup
