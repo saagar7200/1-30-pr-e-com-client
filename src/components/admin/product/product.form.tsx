@@ -7,6 +7,7 @@ import CategorySelect from '../category-select'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { productSchema } from '../../../schema/product.schema'
 import type { IProductDataFormData } from '../../../types/product.types'
+import ImageUpload from '../image-upload'
 
 const ProductForm = () => {
 
@@ -42,7 +43,8 @@ const ProductForm = () => {
 
                     <CategorySelect />
 
-                    <Input
+                    <div className='grid grid-cols-2 gap-4'>
+                        <Input
                         id='price'
                         label='Price'
                         name='price'
@@ -57,7 +59,22 @@ const ProductForm = () => {
                         placeholder='15'
                         required
                     />
+                    </div>
+                    {/* cover image */}
+                    <ImageUpload
+                        label='Cover Image'
+                        id={'cover_image'}
+                        required
+                    />
 
+                    {/* images */}
+                    <ImageUpload
+                        label='Images'
+                        id={'images'}
+                        required
+                        multiple
+                        max={5}
+                    />
                     <TextArea
                         id='description'
                         name='description'

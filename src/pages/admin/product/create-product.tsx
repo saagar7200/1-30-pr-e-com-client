@@ -3,7 +3,7 @@ import ProductForm from "../../../components/admin/product/product.form"
 
 const CreteProduct = () => {
     return (
-        <main className="h-full w-full">
+        <main className="h-full w-full min-h-screen pb-10">
             <PageTitle
                 title="Add New Product"
                 link="/admin/products"
