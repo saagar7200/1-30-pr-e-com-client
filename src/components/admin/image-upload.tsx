@@ -11,11 +11,12 @@ interface IProps {
     // onChange
 }
 
+// image upload component
 const ImageUpload: React.FC<IProps> = ({ id, required = false, label, multiple = false, max = 5 }) => {
     const input_ref = useRef<HTMLInputElement>(null)
     const [images, setImages] = useState<any>([])
 
-    const handle_chnage = (files: FileList | null) => {
+    const handle_change = (files: FileList | null) => {
          
         console.log(files)
         if (!files) return
@@ -55,7 +56,7 @@ const ImageUpload: React.FC<IProps> = ({ id, required = false, label, multiple =
                 <input
                     ref={input_ref}
                     multiple={multiple}
-                    onChange={(e) => handle_chnage(e.target.files)}
+                    onChange={(e) => handle_change(e.target.files)}
                     type='file'
                     className='hidden'
                 />

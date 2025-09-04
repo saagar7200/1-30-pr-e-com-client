@@ -21,10 +21,10 @@ const ProductForm = () => {
             isFeatured: false,
 
         },
-        resolver:yupResolver(productSchema)
+        resolver: yupResolver(productSchema)
     })
 
-    const handleSubmit = (data:IProductDataFormData) =>{
+    const handleSubmit = (data: IProductDataFormData) => {
         console.log(data)
     }
 
@@ -45,20 +45,20 @@ const ProductForm = () => {
 
                     <div className='grid grid-cols-2 gap-4'>
                         <Input
-                        id='price'
-                        label='Price'
-                        name='price'
-                        placeholder='150000'
-                        required
-                    />
+                            id='price'
+                            label='Price'
+                            name='price'
+                            placeholder='150000'
+                            required
+                        />
 
-                    <Input
-                        id='stock'
-                        label='Total available items'
-                        name='stock'
-                        placeholder='15'
-                        required
-                    />
+                        <Input
+                            id='stock'
+                            label='Total available items'
+                            name='stock'
+                            placeholder='15'
+                            required
+                        />
                     </div>
                     {/* cover image */}
                     <ImageUpload
