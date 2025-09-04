@@ -6,23 +6,24 @@ export const productSchema = yup.object().shape({
   description: yup.string().optional(),
 
   // Single cover image (not array)
-//   coverImage: yup
-//     .mixed()
-//     .required("Cover image is required")
-//     .test("file-required", "Cover image is required", (value) => {
-//       return value !== null && value !== undefined;
-//     }),
+  coverImage: yup
+    .mixed()
+    .required("Cover image is required")
+    .test("file-required", "Cover image is required", (value) => {
+      return value !== null && value !== undefined;
+    }),
 
   // Multiple product images (max 5)
-//   images: yup
-//     .array()
-//     .of(yup.mixed())
-//     .test(
-//       "file-required",
-//       "At least two product image is required",
-//       (value) => value && value.length > 2
-//     )
-//     .max(5, "You can upload up to 5 images only"),
+  images: yup
+    .array()
+    .of(yup.mixed())
+    .required("images is required")
+    .test(
+      "file-required",
+      "At least two product image is required",
+      (value) => value && value.length > 2
+    )
+    .max(5, "You can upload up to 5 images only"),
 
   // Number-as-string validation for price
   price: yup

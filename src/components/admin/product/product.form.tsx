@@ -8,6 +8,9 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { productSchema } from '../../../schema/product.schema'
 import type { IProductDataFormData } from '../../../types/product.types'
 import ImageUpload from '../image-upload'
+import { useMutation } from '@tanstack/react-query'
+import { create_product } from '../../../api/product.api'
+import toast from 'react-hot-toast'
 
 const ProductForm = () => {
 
@@ -20,12 +23,45 @@ const ProductForm = () => {
             category: '',
             isFeatured: false,
 
+
         },
         resolver: yupResolver(productSchema)
     })
 
+    const { mutate, isPending } = useMutation({
+        mutationFn: create_product,
+        onSuccess: (response) => {
+            toast.success(response.message || 'Product added')
+        },
+        onError: (error) => {
+            toast.error(error.message || 'Product added')
+        }
+    })
+
     const handleSubmit = (data: IProductDataFormData) => {
         console.log(data)
+        const { category, name, price, stock, coverImage, images, description, isFeatured } = data;
+        const formData = new FormData()
+        formData.append('name', name)
+        formData.append('category', category)
+        formData.append('price', price.toString())
+        formData.append('stock', stock.toString())
+        formData.append('isFeatured', isFeatured.toString())
+        if (description) {
+
+            formData.append('description', description)
+        }
+
+        formData.append('coverImage', coverImage)
+
+        if (images) {
+            images.forEach(file => {
+                formData.append('images', file)
+            })
+        }
+
+        mutate(formData)
+
     }
 
 
@@ -64,6 +100,7 @@ const ProductForm = () => {
                     <ImageUpload
                         label='Cover Image'
                         id={'cover_image'}
+                        name={'coverImage'}
                         required
                     />
 
@@ -71,6 +108,7 @@ const ProductForm = () => {
                     <ImageUpload
                         label='Images'
                         id={'images'}
+                        name={'images'}
                         required
                         multiple
                         max={5}
@@ -91,7 +129,8 @@ const ProductForm = () => {
                     <div className='w-full'>
                         <Button
                             type='submit'
-                            label='Create'
+                            label={isPending ? 'Creating..' : 'Create'}
+                            isDisabled={isPending}
                         />
 
                     </div>

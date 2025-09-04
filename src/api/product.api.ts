@@ -1,6 +1,18 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import api from "./index";
 
+// post product
+
+export const create_product = async (data: FormData) => {
+  console.log(data)
+  try {
+    const response = await api.post("/product", data);
+    return response.data;
+  } catch (error: any) {
+    throw error.response.data;
+  }
+};
+
 // * get featured
 export const getFeaturedProducts = async () => {
   try {
